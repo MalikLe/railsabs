@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :weeks
   devise_for :users
   resources :students
   get 'home/about'

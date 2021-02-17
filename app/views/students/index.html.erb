@@ -22,18 +22,18 @@
         <td><%= student.class_name %></td>
         <td>
           <%= link_to student  do%>
-            <i class="bi bi-eye-fill btn btn-secondary btn-sm"></i>
+            <i class="bi bi-eye-fill btn btn-outline-secondary btn-sm"></i>
           <% end %>
         </td>
 
         <td>
           <%= link_to edit_student_path(student) do%>
-            <i class="bi bi-pen btn btn-secondary btn-sm"></i>
+            <i class="bi bi-pencil-fill btn btn-outline-secondary btn-sm"></i>
           <% end %>
         </td>
         <td>
           <%= link_to student, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer?' } do%>
-            <i class="bi bi-trash-fill btn btn-danger btn-sm"></i>
+            <i class="bi bi-trash-fill btn btn-outline-danger btn-sm"></i>
           <% end %>
         </td>
       </tr>
