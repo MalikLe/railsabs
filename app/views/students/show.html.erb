@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-header">
+    <h4><%= @student.first_name %> <%= @student.last_name %> <span class="badge bg-dark text-light"><%= @student.class_name %></span></h4>
+  </div>
+  <div class="card-body">
+    <%= @student.email %> | <%= @student.phone %>
+    <br />
+    <br />
+    <%= link_to 'Modifier', edit_student_path(@student), class:'btn btn-primary' %>
+  </div>
+</div>
+<br/>
+<%= link_to 'Retour', students_path%>
+

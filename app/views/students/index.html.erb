@@ -1,0 +1,47 @@
+<h4>Étudiants</h4>
+
+<table class='table table-striped table-hover'>
+  <thead class='table-dark'>
+    <tr>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Téléphone</th>
+      <th>Classe</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.phone %></td>
+        <td><%= student.class_name %></td>
+        <td>
+          <%= link_to student  do%>
+            <i class="bi bi-eye-fill btn btn-secondary btn-sm"></i>
+          <% end %>
+        </td>
+
+        <td>
+          <%= link_to edit_student_path(student) do%>
+            <i class="bi bi-pen btn btn-secondary btn-sm"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to student, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer?' } do%>
+            <i class="bi bi-trash-fill btn btn-danger btn-sm"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Ajouter un étudiant', new_student_path, class:'btn btn-primary' %>
+
