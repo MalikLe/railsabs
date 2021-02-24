@@ -2,7 +2,6 @@
   <% if student.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
-
       <ul>
         <% student.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,7 +9,7 @@
       </ul>
     </div>
   <% end %>
-
+  <%= 'TEST' %>
   <div class="field form-group">
     <% form.label :first_name %>
     <%= form.text_field :first_name, class:'form-control', placeholder:'Prénom' %>
@@ -37,7 +36,7 @@
 
   <div class="field form-group">
     <% form.label :class %>
-    <%= form.text_field :class_name, class:'form-control', placeholder:'Classe' %>
+    <%= form.collection_select :class_name, Group.all, :name, :name, {include_blank: false}, {class: 'form-control '} %>
   </div>
 
   <br />

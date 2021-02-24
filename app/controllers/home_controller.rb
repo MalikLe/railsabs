@@ -4,5 +4,9 @@ class HomeController < ApplicationController
 
   def about
   end
-  
+
+
+  def select
+  	@groups = Group.all
+  end
 end

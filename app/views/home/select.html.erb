@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Séléctioner une classe</h4>
+  </div>
+  <div class="card-body">
+    <%= form_with url: "/students", method: :get do |form| %>
+  		<%= form.collection_select :class_name, Group.all, :name, :name, {include_blank: false}, {class: 'form-control '} %>
+		</br>
+  		<%= form.submit "Exécuter", class:"btn btn-primary" %>
+	<% end %>
+  </div>
+</div>
+
+
+
