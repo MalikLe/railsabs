@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Séléctioner une classe</h4>
+  </div>
+  <div class="card-body">
+    <%= form_with url: "/home/timetable", method: :get do |form| %>
+      <%= form.collection_select :week, Week.all, :id, :date_formated, {:selected => @requested_week.id}, {class: 'form-control '} %>
+    </br>
+      <%= form.collection_select :class, Group.all, :id, :name, {:selected => @requested_class.id}, {class: 'form-control '} %>
+    </br>
+      <%= form.submit "Exécuter", class:"btn btn-primary" %>
+  <% end %>
+  </div>
+</div>

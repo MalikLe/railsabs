@@ -6,10 +6,6 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
-  def select
-    @groups = Group.all
-  end
-
   # GET /groups/1 or /groups/1.json
   def show
   end

@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   # Custom root
   get 'home/select'
-
+  get 'home/timetable'
 end

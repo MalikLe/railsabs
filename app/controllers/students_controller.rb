@@ -3,13 +3,7 @@ class StudentsController < ApplicationController
 
   # GET /students or /students.json
   def index
-    #@students = Student.all
-    if(params.has_key?(:class_name))
-      gr = params[:class_name]
-      @students = Student.where(class_name:gr)
-    else
-      @students = Student.all
-    end
+    @students = Student.all
   end
 
   # GET /students/1 or /students/1.json
