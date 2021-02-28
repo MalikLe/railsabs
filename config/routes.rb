@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  resources :periods do
+    collection do
+      put :discontinue
+    end
+  end
+
   resources :weeks
   devise_for :users
   resources :students

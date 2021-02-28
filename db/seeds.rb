@@ -8,11 +8,29 @@
 
 #Week.where( id: 0..1000 ).delete_all
 
-start = Date.new(2021, 1, 4)
-stop = start + 6
-
-for i in 1..52
-	Week.create([{ num: i, start_date: start, end_date: stop }])
-	start = start + 7
+##### Populate DB with 2021 weeks
+=begin
+	start = Date.new(2021, 1, 4)
 	stop = start + 6
+
+	for i in 1..52
+		Week.create([{ num: i, start_date: start, end_date: stop }])
+		start = start + 7
+		stop = start + 6
+	end
+=end
+
+#Period.delete_all
+
+#### Populate DB with periods
+=begin
+Student.all.each do |student|
+	Week.all.each do |week|
+		for d in 1..5
+			for i in 1..7
+				Period.create([{ week_id: week.id, day: d, student_id: student.id, state: 0 }])
+			end
+		end
+	end
 end
+=end

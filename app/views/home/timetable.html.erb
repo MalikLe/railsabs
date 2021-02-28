@@ -1,8 +1,8 @@
 <h2> Classe <%=@requested_class.name%> Semaine <%= @requested_week.date_formated%></h2>
 <br/>
-
-<%= render 'home/schedule' %>
-
+<%= form_tag discontinue_periods_path, remote:true,  method: :put do %>
+	<%= render 'home/schedule1' %>
+<% end %>
 <br/>
 
 <%= render 'home/selection' %>

@@ -18,7 +18,7 @@
       <% days = ['Lu', 'Ma', 'Me', 'Je', 'Ve'] %>
       <% for i in 0..4 %>
 	  	
-	  		<% for j in 1..8 %>
+	  		<% for j in 1..7 %>
   				<th class='text-center'>
             		<%= j %>
           		</th>
@@ -30,42 +30,39 @@
 
   <tbody>
 
-    <% @students.each do |student| %>
+    <% @periods.group(:student_id).each do |s| %>
       <tr>
         <td>
-        	<%= link_to edit_student_path(student) do%>
-        		<%= student.last_name  %>
-        	<%end%>
+          <%= s.student.last_name %>
         </td>
         <td>
-        	<%= link_to edit_student_path(student) do%>
-        		<%= student.first_name %>
-        	<%end%>
+          <%= s.student.first_name %>
         </td>
-        <td><%= student.class_name %></td>
+        <td>
+          <%= s.student.class_name %>
+        </td>
+        
+        <% @periods.where( :student_id => s.student.id).each do |p| %>
+          <td>
 
-        <% for j in 1..days.length() %>
-        
-            
-            <% for j in 1..8 %>
-      				<td class='text-center'>
- 
-              </td>
-      			<% end %>
-           
-        
+          <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <%= check_box_tag "period_ids[]", p.id, !p.state.zero?, autocomplete:"off", class:"btn-check", type:"checkbox", id:p.id%>
+            <%= label_tag p.id, "A", class: "btn btn-outline-warning"%>
+          </div>
+
+          </td>
         <% end %>
-        
-
-
         
       </tr>
     <% end %>
+
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'Enregistrer', new_student_path, class:'btn btn-primary' %>
+<%= hidden_field_tag 'week', @requested_week.id %>
+<%= submit_tag "Enregistrer", class: "btn btn-primary"%>
 <br/>
 <br/>
+

@@ -34,8 +34,11 @@ class HomeController < ApplicationController
       @requested_week = @current_week.first
     end
 
-
-  	@weeks = Week.all
+    #@periods = Period.where("week_id = :week AND (student_id IN :student)", {week: wk, student: @students.ids})
+    @periods = Period.where(:week_id => wk).where(:student_id => @students.ids)
+  	
   	
   end
+
+  
 end
