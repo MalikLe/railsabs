@@ -12,8 +12,8 @@ class HomeController < ApplicationController
 
   def timetable
 
-  	@current_week = Week.where("start_date <= :today AND end_date > :today", {today: DateTime.current.to_date})
-
+  	@current_week = Week.where("start_date <= :today AND end_date > :today", {today: DateTime.current.to_date}).first
+    @current_day = (DateTime.current.to_date - @current_week.start_date).to_i + 1
   	if(params.has_key?(:class))
       gr = params[:class]
       @requested_class = Group.where(id:gr).first
@@ -31,11 +31,19 @@ class HomeController < ApplicationController
       @requested_week = Week.where(id:wk).first
 
     else
-      @requested_week = @current_week.first
+      @requested_week = @current_week
+    end
+
+    if(params.has_key?(:day))
+      dy = params[:day]
+      @requested_day = dy.to_i
+
+    else
+      @requested_day = @current_day
     end
 
     #@periods = Period.where("week_id = :week AND (student_id IN :student)", {week: wk, student: @students.ids})
-    @periods = Period.where(:week_id => wk).where(:student_id => @students.ids)
+    @periods = Period.where(:week_id => wk).where(:day => @requested_day).where(:student_id => @students.ids)
   	
   	
   end
