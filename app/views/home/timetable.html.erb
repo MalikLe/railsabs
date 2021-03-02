@@ -1,5 +1,10 @@
 <h2> Classe <%=@requested_class.name%> Semaine <%= @requested_week.date_formated%></h2>
 <br/>
+
+<span class="badge bg-warning text-dark">R: En retard</span>
+<span class="badge bg-danger text-dark">A: Absent</span>
+<br/>
+<br/>
 <%= form_tag discontinue_periods_path, remote:true,  method: :put do %>
 	<%= render 'home/schedule1' %>
 <% end %>

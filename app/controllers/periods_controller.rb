@@ -57,8 +57,9 @@ class PeriodsController < ApplicationController
   end
 
   def discontinue
-    Period.where(week_id:params[:week]).update_all(:state => false)
-    Period.where(id:params[:period_ids]).update_all(:state => true)
+    Period.where(week_id:params[:week]).update_all(:state => 0)
+    Period.where(id:params[:period_ids_r]).update_all(:state => 1)
+    Period.where(id:params[:period_ids_a]).update_all(:state => 2)
     #redirect_to(:back)
   end
 

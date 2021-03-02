@@ -45,9 +45,38 @@
         <% @periods.where( :student_id => s.student.id).each do |p| %>
           <td>
 
-          <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+          <!--<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
             <%= check_box_tag "period_ids[]", p.id, !p.state.zero?, autocomplete:"off", class:"btn-check", type:"checkbox", id:p.id%>
             <%= label_tag p.id, "A", class: "btn btn-outline-warning"%>
+          </div>-->
+
+          <div class="btn-group" role="group" aria-label=<%= p.id %>>
+            <% 
+              id_r = p.id.to_s + "_R"
+              if p.state == 1
+                state_a = true
+              else
+                state_a = false
+              end
+            %>
+
+            <%= radio_button_tag "period_ids_r[]", p.id, state_a, autocomplete:"off", class:"btn-check", type:"checkbox", id:id_r %>
+            <%= label_tag id_r, "R", class: "btn btn-outline-warning" %>
+
+            <%
+              id_a = p.id.to_s + "_A"
+              if p.state == 2 
+                state_r = true
+              else
+                state_r = false
+              end
+            %>
+
+
+            <%= radio_button_tag "period_ids_a[]", p.id, state_r, autocomplete:"off", class:"btn-check", type:"checkbox", id:id_a %>
+            <%= label_tag id_a, "A", class: "btn btn-outline-danger" %>
+
+            
           </div>
 
           </td>
