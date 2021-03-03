@@ -82,6 +82,6 @@
 </table>
 
 <%= hidden_field_tag 'week', @requested_week.id %>
-<%= submit_tag "Enregistrer", class: "btn btn-success", id:"liveToastBtn"%>
+<%= submit_tag "Enregistrer", class: "btn btn-success", id:"liveToastBtn", onclick: "toastr.success('Appel enregistrer')"%>
 
 
