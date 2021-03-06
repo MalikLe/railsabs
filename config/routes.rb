@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
 
+  resources :tests do
+    collection do
+      put :discontinue
+    end
+  end
+  resources :subjects
   resources :periods do
     collection do
       put :discontinue
     end
   end
+
 
   resources :weeks
   devise_for :users
@@ -19,4 +26,6 @@ Rails.application.routes.draw do
   # Custom root
   get 'home/select'
   get 'home/timetable'
+  get 'home/resulttable'
+  get 'home/new_test'
 end

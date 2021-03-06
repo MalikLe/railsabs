@@ -1,0 +1,40 @@
+<h4>Liste des branches</h4>
+
+<table class='table table-striped table-hover'>
+  <thead class='table-dark'>
+    <tr>
+      <th>Nom de la branche</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @subjects.each do |subject| %>
+      <tr>
+        <td><%= subject.name %></td>
+        <td>
+          <%= link_to subject  do%>
+            <i class="bi bi-eye-fill btn btn-outline-secondary btn-sm"></i>
+          <% end %>
+        </td>
+
+        <td>
+          <%= link_to edit_subject_path(subject) do%>
+            <i class="bi bi-pencil-fill btn btn-outline-secondary btn-sm"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to subject, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer?' } do%>
+            <i class="bi bi-trash-fill btn btn-outline-danger btn-sm"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouvelle branche', new_subject_path, class:'btn btn-primary' %>
+

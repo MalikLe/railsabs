@@ -4,68 +4,84 @@
       <th>Nom</th>
       <th>Prénom</th>
       <th>Classe</th>
-      <% days = ['Lu', 'Ma', 'Me', 'Je', 'Ve'] %>
-      <% for i in 0..4 %>
-	  	<th colspan="8">
-	  		<%= days[i] + " " + (@requested_week.start_date + i).strftime("%d.%m") %>
+      <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
+
+	  	<th colspan="8" class='text-center'>
+	  		<%= days[@requested_day - 1] + " " + (@requested_week.start_date + @requested_day - 1).strftime("%d.%m") %>
 	    </th>
-      <% end %>
+
     </tr>
     <tr>
       <th></th>
       <th></th>
 	  <th></th>
-      <% days = ['Lu', 'Ma', 'Me', 'Je', 'Ve'] %>
-      <% for i in 0..4 %>
-	  	
-	  		<% for j in 1..8 %>
+	  	  <% periods = ['8h30 - 10h00', '10h20 - 11h05', '11h15 - 12h00', '12h00 - 12h45', '13h45 - 14h30', '14h30 - 15h15', '15h30 - 16h15'] %>
+	  		<% for i in 0..6 %>
   				<th class='text-center'>
-            		<%= j %>
+            		<%= periods[i] %>
           		</th>
       		<% end %>
 	    
-      <% end %>
+
     </tr>
   </thead>
 
   <tbody>
 
-    <% @students.each do |student| %>
+    <% @periods.group(:student_id).each do |s| %>
       <tr>
         <td>
-        	<%= link_to edit_student_path(student) do%>
-        		<%= student.last_name  %>
-        	<%end%>
+          <%= s.student.last_name %>
         </td>
         <td>
-        	<%= link_to edit_student_path(student) do%>
-        		<%= student.first_name %>
-        	<%end%>
+          <%= s.student.first_name %>
         </td>
-        <td><%= student.class_name %></td>
+        <td>
+          <%= s.student.class_name %>
+        </td>
+        
+        <% @periods.where( :student_id => s.student.id).each do |p| %>
+          <td class='text-center'>
 
-        <% for j in 1..days.length() %>
-        
-            
-            <% for j in 1..8 %>
-      				<td class='text-center'>
- 
-              </td>
-      			<% end %>
-           
-        
+            <div class="btn-group" role="group" aria-label=<%= p.id %>>
+              <% 
+                id_r = p.id.to_s + "_R"
+                if p.state == 1
+                  state_a = true
+                else
+                  state_a = false
+                end
+              %>
+
+              <%= radio_button_tag "period_ids_r[]", p.id, state_a, autocomplete:"off", class:"btn-check", type:"checkbox", id:id_r %>
+              <%= label_tag id_r, "R", class: "btn btn-outline-warning" %>
+
+              <%
+                id_a = p.id.to_s + "_A"
+                if p.state == 2 
+                  state_r = true
+                else
+                  state_r = false
+                end
+              %>
+
+
+              <%= radio_button_tag "period_ids_a[]", p.id, state_r, autocomplete:"off", class:"btn-check", type:"checkbox", id:id_a %>
+              <%= label_tag id_a, "A", class: "btn btn-outline-danger" %>
+
+              
+            </div>
+
+          </td>
         <% end %>
-        
-
-
         
       </tr>
     <% end %>
+
   </tbody>
 </table>
 
-<br>
+<%= hidden_field_tag 'week', @requested_week.id %>
+<%= submit_tag "Enregistrer", class: "btn btn-success", id:"liveToastBtn", onclick: "toastr.success('Appel enregistré')"%>
 
-<%= link_to 'Enregistrer', new_student_path, class:'btn btn-primary' %>
-<br/>
-<br/>
+

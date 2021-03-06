@@ -1,13 +1,17 @@
+<h4>Result table</h4>
+
+<%= render 'home/selection_class' %> 
+
 <table class='table table-striped table-borderless table-responsive'>
   <thead class='table-dark'>
     <tr>
       <th>Nom</th>
       <th>Prénom</th>
       <th>Classe</th>
-      <% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
+      <% subjects = ['Mathématiques', 'Physique', 'Chimie', 'Biologie', 'Histoire', 'Géographie', 'Français', 'Langue étrangère']%>
 
 	  	<th colspan="8" class='text-center'>
-	  		<%= days[@requested_day - 1] + " " + (@requested_week.start_date + @requested_day - 1).strftime("%d.%m") %>
+	  		
 	    </th>
 
     </tr>
@@ -80,8 +84,3 @@
 
   </tbody>
 </table>
-
-<%= hidden_field_tag 'week', @requested_week.id %>
-<%= submit_tag "Enregistrer", class: "btn btn-success", id:"liveToastBtn", onclick: "toastr.success('Appel enregistrer')"%>
-
-

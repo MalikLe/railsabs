@@ -1,0 +1,14 @@
+<% days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'] %>
+<br/><br/>
+<ul class="nav nav-tabs">
+	<% for i in 0..4 %>
+		<li class="nav-item">
+			<% if i == @requested_day -1 %>
+				<%= link_to days[i], params.permit(:week, :class, :day).merge(:week => @requested_week, :class => @requested_class, :day => i + 1), class:"nav-link active" %>
+			<% else %>
+				<%= link_to days[i], params.permit(:week, :class, :day).merge(:week => @requested_week, :class => @requested_class, :day => i + 1), class:"nav-link" %>
+			<% end %>
+		</li>
+  	<% end %>
+  	<%= link_to "Aujourd'hui", params.permit(:week, :class, :day).merge(:week => @current_week.id, :class => @requested_class, :day => @current_day), class:"btn btn-primary" %>
+</ul>

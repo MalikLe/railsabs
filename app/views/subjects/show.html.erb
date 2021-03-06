@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+    <h4><%= @subject.name %></h4>
+  </div>
+  <div class="card-body">
+    <br />
+    <br />
+    <%= link_to 'Modifier', edit_subject_path(@subject), class:'btn btn-primary' %>
+  </div>
+</div>
+<br/>
+<%= link_to 'Retour', subjects_path%>

@@ -1,0 +1,46 @@
+<%= form_tag discontinue_tests_path, remote:true,  method: :put do %>
+    
+
+
+
+
+
+  
+  <div class="field form-group">
+    <%= text_field_tag 'name', nil,  class:'form-control', placeholder:"Nom de l'épreuve" %>
+  </div>
+  <br />
+
+  <div class="field form-group">
+    <%= collection_select :subject, :subject_id, Subject.all, :id, :name, {include_blank: false}, {class: 'form-control '} %>
+  </div>
+  <br />
+
+
+    
+  <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+    <%= radio_button_tag 'btnwriting', '0', true, class:'btn-check', name:'btntype', id:'btnwriting', autocomplete:'off', checked:true %>
+    <%= label_tag "btnwriting", 'Écrit', class:"btn btn-outline-primary", for:"btnwriting" %>
+    <%= radio_button_tag 'btnlistening', '1', false,  class:'btn-check', name:'btntype', id:'btnlistening', autocomplete:'off'%>
+    <%= label_tag 'btnlistening', 'Oral', class:"btn btn-outline-primary", for:"btnlistening" %>
+  </div>
+
+
+  <br/>
+  <br/>
+  <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+    <% @groups.each do |group| %>
+      <% id = "btn" + group.id.to_s %>
+      <%= check_box_tag "test_classes[]", group.id, false, class:'btn-check', autocomplete:'off', id: id %>
+      <%= label_tag id, group.name, class:"btn btn-outline-primary", for:id%>
+    <%end%>
+  </div>
+
+  <br />
+
+  <br />
+  <div class="actions">
+    <%= submit_tag "Enregistrer", class: "btn btn-success"%>
+
+  </div>
+<% end %>

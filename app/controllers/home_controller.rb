@@ -31,6 +31,42 @@ class HomeController < ApplicationController
       @requested_week = Week.where(id:wk).first
 
     else
+      @requested_week = Week.first
+    end
+
+    if(params.has_key?(:day))
+      dy = params[:day]
+      @requested_day = dy.to_i
+
+    else
+      @requested_day = 1
+    end
+
+    #@periods = Period.where("week_id = :week AND (student_id IN :student)", {week: wk, student: @students.ids})
+    @periods = Period.where(:week_id => wk).where(:day => @requested_day).where(:student_id => @students.ids)
+  	
+  	
+  end
+
+  def resulttable
+
+    if(params.has_key?(:class))
+      gr = params[:class]
+      @requested_class = Group.where(id:gr).first
+      @students = Student.where(class_name:@requested_class.name)
+    else
+      #@students = Student.all.order('last_name')
+      gr = Group.first.name
+      @requested_class = Group.first
+      @students = Student.where(class_name:@requested_class.name)
+    end
+
+
+    if(params.has_key?(:sub))
+      sb = params[:sub]
+      @requested_subject = Week.where(id:wk).first
+
+    else
       @requested_week = @current_week
     end
 
@@ -44,8 +80,12 @@ class HomeController < ApplicationController
 
     #@periods = Period.where("week_id = :week AND (student_id IN :student)", {week: wk, student: @students.ids})
     @periods = Period.where(:week_id => wk).where(:day => @requested_day).where(:student_id => @students.ids)
-  	
-  	
+    
+    
+  end
+
+  def new_test
+    @groups = Group.all
   end
 
   
