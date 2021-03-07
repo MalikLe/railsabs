@@ -1,0 +1,46 @@
+<table class='table table-striped table-borderless table-responsive'>
+  <thead class='table-dark'>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Classe</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @requested_scores.each do |score| %>
+      <tr>
+        <td>
+          <%= score.student.last_name %>
+        </td>
+        <td>
+          <%= score.student.first_name %>
+        </td>
+        <td>
+          <%= score.student.class_name %>
+        </td>
+        <td>
+          <%= form_tag discontinue_scores_path, local:false, class:"row g-2",  method: :put do %>
+            <div class="col-auto">
+              <%= text_field_tag 'score', score.score, class:"form-control", onblur:"this.form.submit();"  %>
+            </div>
+            <div class="col-auto">
+              <%= button_tag( :class=>"btn btn-outline-success") do %>
+                <i class="bi bi-check"></i>
+              <% end %>
+            </div>
+
+            <%= hidden_field_tag 'id', score.id %>
+          <% end %>
+        </td>
+        <td>
+          
+        </td>
+        
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>

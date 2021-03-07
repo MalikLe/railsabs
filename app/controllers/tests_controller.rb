@@ -58,6 +58,7 @@ class TestsController < ApplicationController
   end
 
   def discontinue
+    @test_ids = []
     params[:test_classes].each do |group|
       test = Test.new
       test.name = params[:name]
@@ -67,8 +68,18 @@ class TestsController < ApplicationController
       test.created_at = DateTime.now
       test.updated_at = DateTime.now
       test.save
+      @test_ids << test.id
+
+      @students = Student.where(:class_name => test.group.name)
+      @students.each do |student|
+        score = Score.new
+        score.test_id = test.id
+        score.student_id = student.id
+        score.save
+      end
     end
-    redirect_to tests_path
+    #redirect_to tests_path
+    redirect_to action: 'edit_results', controller: 'home', test_ids: @test_ids
 
     #Period.where(week_id:params[:week]).update_all(:state => 0)
     #Period.where(id:params[:period_ids_r]).update_all(:state => 1)

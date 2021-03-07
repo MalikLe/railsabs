@@ -12,7 +12,7 @@ class HomeController < ApplicationController
 
   def timetable
 
-  	@current_week = Week.where("start_date <= :today AND end_date > :today", {today: DateTime.current.to_date}).first
+  	@current_week = Week.where("start_date <= :today AND end_date >= :today", {today: DateTime.current.to_date}).first
     @current_day = (DateTime.current.to_date - @current_week.start_date).to_i + 1
   	if(params.has_key?(:class))
       gr = params[:class]
@@ -86,7 +86,23 @@ class HomeController < ApplicationController
 
   def new_test
     @groups = Group.all
+
   end
 
+  def edit_results
+    ts = params[:test_ids].map(&:to_i)
+    @requested_tests = Test.where(id:ts)
+
+    if(params.has_key?(:class))
+      @gr = params[:class]
+
+    else
+      @gr = @requested_tests.first.group_id
+    end
+
+    #@students = Student.where(class_name: Group.where(:id => @gr).first.name)
+    @requested_test = @requested_tests.where(:group_id => @gr)
+    @requested_scores = Score.where(:test_id => @requested_test.ids)
+  end
   
 end

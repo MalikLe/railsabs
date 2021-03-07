@@ -1,0 +1,15 @@
+<h4>Edit results</h4>
+
+<ul class="nav nav-tabs">
+<% @requested_tests.each do |test| %>
+	<li class="nav-item">
+	    <% if test.group.id == @gr.to_i %>
+	    	<%= link_to test.group.name, params.permit(:test_ids, :class, :test_id).merge(:test_ids => @requested_tests.ids, :class => test.group.id, :test_id => test.id) , class:"nav-link active" %>
+	    <% else %>
+	    	<%= link_to test.group.name, params.permit(:test_ids, :class, :test_id).merge(:test_ids => @requested_tests.ids, :class => test.group.id, :test_id => test.id), class:"nav-link"%>
+	    <% end %>
+  	</li>
+<% end %>
+</ul>
+
+<%= render 'home/results_table' %>

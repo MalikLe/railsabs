@@ -1,11 +1,5 @@
 <%= form_tag discontinue_tests_path, remote:true,  method: :put do %>
-    
-
-
-
-
-
-  
+      
   <div class="field form-group">
     <%= text_field_tag 'name', nil,  class:'form-control', placeholder:"Nom de l'épreuve" %>
   </div>
@@ -40,7 +34,11 @@
 
   <br />
   <div class="actions">
-    <%= submit_tag "Enregistrer", class: "btn btn-success"%>
+    <%= submit_tag "Continuer", class: "btn btn-success"%>
 
   </div>
+<% end %>
+
+<% if(params.has_key?(:test_ids)) %>
+  <%= params[:test_ids] %>
 <% end %>

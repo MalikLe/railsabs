@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
 	has_many :periods
-	has_many :results
+	has_many :scores
 	belongs_to :group
 end

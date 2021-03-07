@@ -4,7 +4,7 @@
   <thead class='table-dark'>
     <tr>
       <th>Nom de la branche</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -12,18 +12,7 @@
 
     <% @subjects.each do |subject| %>
       <tr>
-        <td><%= subject.name %></td>
-        <td>
-          <%= link_to subject  do%>
-            <i class="bi bi-eye-fill btn btn-outline-secondary btn-sm"></i>
-          <% end %>
-        </td>
-
-        <td>
-          <%= link_to edit_subject_path(subject) do%>
-            <i class="bi bi-pencil-fill btn btn-outline-secondary btn-sm"></i>
-          <% end %>
-        </td>
+        <td><%= link_to subject.name, edit_subject_path(subject) %></td>
         <td>
           <%= link_to subject, method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer?' } do%>
             <i class="bi bi-trash-fill btn btn-outline-danger btn-sm"></i>
