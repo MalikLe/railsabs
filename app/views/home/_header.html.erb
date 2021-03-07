@@ -23,6 +23,9 @@
           <li class="nav-item">
             <%= link_to 'Épreuves', tests_path, class:'nav-link' %>
           </li>
+          <li class="nav-item">
+            <%= link_to 'Résultats', home_show_results_path, class:'nav-link' %>
+          </li>
 	        <li class="nav-item">
 	          <%= link_to 'A propos', home_about_path, class:'nav-link' %>
 	        </li>
@@ -36,10 +39,7 @@
         <% end %>
 
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Rechercher</button>
-      </form>
+      
     </div>
   </div>
 </nav>

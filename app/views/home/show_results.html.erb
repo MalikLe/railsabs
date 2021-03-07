@@ -1,0 +1,108 @@
+<h4>Show results</h4>
+
+
+<ul class="nav nav-tabs">
+<% @groups.each do |group| %>
+	<li class="nav-item">
+	    <% if group.id == @gr.to_i %>
+	    	<%= link_to group.name, params.permit(:class).merge(:class => group.id) , class:"nav-link active" %>
+	    <% else %>
+	    	<%= link_to group.name, params.permit(:class).merge(:class => group.id) , class:"nav-link" %>
+	    <% end %>
+  	</li>
+<% end %>
+</ul>
+
+<table class='table table-striped table-responsive table-hover'>
+  <thead class='table-dark'>
+    <tr>
+      <th>Étudiant</th>
+      <th>Classe</th>
+	  	<th class='text-center' colspan=<%= @tests.count %> >
+	  		Épreuves
+	    </th>
+
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+	  		<% @subjects.each do |sub| %>
+  				<th class='text-center' colspan= <%= @tests.where(:subject_id => sub).count %> >
+            		<%= Subject.find(sub).name %>
+          		</th>
+      		<% end %>
+    </tr>
+  </thead>
+  <tbody>
+  	<tr>
+  		<td></td>
+  		<td></td>
+  		<% @subjects.each do |sub| %>
+  			<% i = 0 %>
+  			<% @tests.where(:subject_id => sub).each do |t| %>
+  				<td class='text-center'>
+  					<% if t.test_type == 0 %>
+  						<%= link_to  home_edit_results_path(:test_ids => [t.id]) do %>
+            				<i class="bi bi-pencil-square"></i>
+            			<% end %>
+            		<% else %>
+            			<%= link_to  home_edit_results_path(:test_ids => [t.id]) do %>
+            				<i class="bi bi-chat"></i>
+            			<% end %>
+            		<% end %>
+          		</td>
+      		<% end %>
+      	<% end %>
+  	</tr>
+  	<% @students.each do |std| %>
+  	<tr>
+  		<td><%= std.first_name + " " + std.last_name %></td>
+  		<td><%= std.class_name %></td>
+  		<% @subjects.each do |sub| %>
+  			<% @tests.where(:subject_id => sub).each do |t| %>
+  				<td class='text-center'>
+  					<% score = Score.where(:test_id => t.id).where(:student_id => std.id).first %>
+  					<% if score.nil? or score.score.nil? %>
+  						<span class="text-muted">na</span>
+  					<%else%>
+  						<% if score.score >= 4 %>
+  							<span class="text-success"><%= score.score %></span>
+  						<% else %>
+  							<span class="text-danger"><%= score.score %></span>
+  						<% end %>
+  					<%end%>
+
+          		</td>
+      		<% end %>
+      	<% end %>
+  	</tr>
+  	<% end %>
+  </tbody>
+  <tfoot>
+  	<tr>
+  		<td></td>
+  		<td></td>
+  		<% @subjects.each do |sub| %>
+  			<% @tests.where(:subject_id => sub).each do |t| %>
+  				<td class='text-center'>
+  					<%= Score.where(:test_id => t.id).average(:score) %>
+  				</td>
+  			<% end %>
+  		<% end %>
+  	</tr>
+  </tfoot>
+
+  
+</table>
+
+<%= link_to 'Nouvelle épreuve', home_new_test_path, class:'btn btn-primary' %>
+<br/>
+<br/>
+<%= link_to 'Gérer les branches', subjects_path%>
+<br/>
+<%= link_to 'Gérer les étudiants', students_path%>
+<br/>
+<%= link_to 'Gérer les épreuves', tests_path%>
+
+
+

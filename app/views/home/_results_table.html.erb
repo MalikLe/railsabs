@@ -27,18 +27,12 @@
               <%= text_field_tag 'score', score.score, class:"form-control", onblur:"this.form.submit();"  %>
             </div>
             <div class="col-auto">
-              <%= button_tag( :class=>"btn btn-outline-success") do %>
-                <i class="bi bi-check"></i>
-              <% end %>
+              
             </div>
 
             <%= hidden_field_tag 'id', score.id %>
           <% end %>
         </td>
-        <td>
-          
-        </td>
-        
       </tr>
     <% end %>
 

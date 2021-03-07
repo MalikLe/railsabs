@@ -18,7 +18,7 @@
 
     <% @tests.each do |test| %>
       <tr>
-        <td><%= link_to test.name, edit_test_path(test) %></td>
+        <td><%= link_to test.name, home_edit_results_path(:test_ids => [test.id]) %></td>
         <td><%= test.subject.name %></td>
         <td><%= test.group.name%></td>
         <td>

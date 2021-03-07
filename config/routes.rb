@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       put :discontinue
     end
   end
-  
+
   resources :tests do
     collection do
       put :discontinue
@@ -35,4 +35,5 @@ Rails.application.routes.draw do
   get 'home/resulttable'
   get 'home/new_test'
   get 'home/edit_results'
+  get 'home/show_results'
 end

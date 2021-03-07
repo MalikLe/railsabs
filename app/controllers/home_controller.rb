@@ -104,5 +104,19 @@ class HomeController < ApplicationController
     @requested_test = @requested_tests.where(:group_id => @gr)
     @requested_scores = Score.where(:test_id => @requested_test.ids)
   end
+
+  def show_results
+    @groups = Group.all
+    if(params.has_key?(:class))
+      @gr = params[:class]
+    else
+      @gr = Group.first.id
+    end
+
+    @tests = Test.where(:group_id => @gr)
+    @subjects = @tests.distinct.pluck(:subject_id)
+    @students = Student.where(:class_name => Group.find(@gr).name)
+
+  end
   
 end

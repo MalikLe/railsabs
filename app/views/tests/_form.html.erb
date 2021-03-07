@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+
+  <div class="field form-group">
+    <%= form.text_field :name, class:'form-control', placeholder:"Nom de l'épreuve" %>
+  </div>
+  <br />
+
+  <div class="field form-group">
+    <%= form.collection_select :subject_id, Subject.all, :id, :name, {include_blank: false}, {class: 'form-control '} %>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <%= form.collection_select :group, Group.all, :id, :name, {include_blank: false}, {class: 'form-control '} %>
   </div>
 
-  <div class="field">
-    <%= form.label :subject_id %>
-    <%= form.number_field :subject_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :group_id %>
-    <%= form.number_field :group_id %>
-  </div>
-
+  <br />
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Mettre à jour", class:'btn btn-primary' %>
   </div>
 <% end %>
