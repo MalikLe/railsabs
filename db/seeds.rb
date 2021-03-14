@@ -9,7 +9,7 @@
 #Week.where( id: 0..1000 ).delete_all
 
 ##### Populate DB with 2021 weeks
-=begin
+#=begin
 	start = Date.new(2021, 1, 4)
 	stop = start + 6
 
@@ -18,7 +18,7 @@
 		start = start + 7
 		stop = start + 6
 	end
-=end
+#=end
 
 #Period.delete_all
 
