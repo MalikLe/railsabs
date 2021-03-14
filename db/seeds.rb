@@ -34,3 +34,32 @@ Student.all.each do |student|
 	end
 end
 =end
+
+##### Populate DB with real students (CSV)
+=begin
+require 'csv'
+
+CSV.foreach(Rails.root.join('csv/Liste_20-21_wtP1-4.csv'), headers: true, :col_sep => ?;) do |row|
+	Student.create! do |student|
+		student.class_id = Group.where(:name => row[3]).first.id
+		student.last_name = row[0]
+		student.first_name = row[1]
+		student.birth_date = row[2]
+		student.class_name = row[3]
+		student.email = row[4]
+		
+	end
+end
+=end
+
+#### Populate DB with classes (CSV)
+=begin
+require 'csv'
+
+CSV.foreach(Rails.root.join('csv/classes.csv'), headers: false) do |row|
+	Group.create! do |group|
+		group.name = row[0]
+		
+	end
+end
+=end

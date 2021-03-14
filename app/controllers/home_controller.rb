@@ -35,11 +35,18 @@ class HomeController < ApplicationController
     end
 
     if(params.has_key?(:day))
-      dy = params[:day]
-      @requested_day = dy.to_i
+      dy = params[:day].to_i
+      if(dy >= 6)
+        dy = 5
+      end
+      @requested_day = dy
 
     else
-      @requested_day = 1
+      if(@current_day >= 6)
+        @requested_day = 1
+      else
+        @requested_day = @current_day
+      end
     end
 
     #@periods = Period.where("week_id = :week AND (student_id IN :student)", {week: wk, student: @students.ids})
@@ -116,7 +123,6 @@ class HomeController < ApplicationController
     @tests = Test.where(:group_id => @gr)
     @subjects = @tests.distinct.pluck(:subject_id)
     @students = Student.where(:class_name => Group.find(@gr).name)
-
   end
   
 end
