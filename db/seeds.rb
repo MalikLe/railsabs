@@ -9,7 +9,7 @@
 #Week.where( id: 0..1000 ).delete_all
 
 ##### Populate DB with 2021 weeks
-#=begin
+=begin
 	start = Date.new(2021, 1, 4)
 	stop = start + 6
 
@@ -18,12 +18,12 @@
 		start = start + 7
 		stop = start + 6
 	end
-#=end
+=end
 
 #Period.delete_all
 
 #### Populate DB with periods
-=begin
+#=begin
 Student.all.each do |student|
 	Week.all.each do |week|
 		for d in 1..5
@@ -33,7 +33,7 @@ Student.all.each do |student|
 		end
 	end
 end
-=end
+#=end
 
 ##### Populate DB with real students (CSV)
 =begin
