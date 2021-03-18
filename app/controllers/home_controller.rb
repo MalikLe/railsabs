@@ -29,9 +29,9 @@ class HomeController < ApplicationController
     if(params.has_key?(:week))
       wk = params[:week]
       @requested_week = Week.where(id:wk).first
-
     else
-      @requested_week = Week.first
+      wk = @current_week.id
+      @requested_week = @current_week
     end
 
     if(params.has_key?(:day))
