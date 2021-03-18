@@ -48,7 +48,7 @@ CSV.foreach(Rails.root.join('csv/students.csv'), headers: true, :col_sep => ?;, 
 		student.email = row[3]
 		student.phone = row[4]
 		student.class_name = row[5]
-		student.serial_number = row[6].to_i
+		student.serial_num = row[6]
 		
 		
 	end
