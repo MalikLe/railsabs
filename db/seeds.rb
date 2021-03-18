@@ -32,6 +32,7 @@ Student.all.each do |student|
 			end
 		end
 	end
+	puts "Student periods load success!"
 end
 #=end
 
