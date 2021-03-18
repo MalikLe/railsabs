@@ -24,7 +24,7 @@
 
 #### Populate DB with periods
 #=begin
-c = 4628
+c = 7308
 nb = Student.count
 Student.where("id > 142").each do |student|
 	Week.all.each do |week|
