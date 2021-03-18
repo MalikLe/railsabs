@@ -56,7 +56,7 @@ end
 #=begin
 require 'csv'
 
-CSV.foreach(Rails.root.join('csv/groups.csv'), headers: false) do |row|
+CSV.foreach(Rails.root.join('csv/groups.csv'), headers: false, encoding: "ISO8859-1") do |row|
 	Group.create! do |group|
 		group.name = row[0]
 		
