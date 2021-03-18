@@ -26,7 +26,7 @@
 #=begin
 c = 4628
 nb = Student.count
-Student.where("id > 91").each do |student|
+Student.where("id > 142").each do |student|
 	Week.all.each do |week|
 		c = c + 1
 		for d in 1..5
