@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_135516) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "class_id"
     t.date "birth_date"
-    t.integer "serial_number"
+    t.string "serial_number"
     t.index ["class_id"], name: "index_students_on_class_id"
   end
 
