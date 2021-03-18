@@ -26,7 +26,7 @@
 #=begin
 c = 0
 nb = Student.count
-Student.first(3).each do |student|
+Student.all.each do |student|
 	Week.all.each do |week|
 		c = c + 1
 		for d in 1..5
