@@ -41,7 +41,7 @@
           <%= s.class_name %>
         </td>
         
-        <% @periods.where( :student_id => s.id).each do |p| %>
+        <% @periods.where(:student_id => s.id).order(:day).each do |p| %>
           <td class='text-center'>
 
             <div class="btn-group" role="group" aria-label=<%= p.id %>>
