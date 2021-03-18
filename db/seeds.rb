@@ -24,15 +24,20 @@
 
 #### Populate DB with periods
 #=begin
-Student.all.each do |student|
+c = 0
+nb = Student.count
+Student.first(3).each do |student|
 	Week.all.each do |week|
+		c = c + 1
 		for d in 1..5
 			for i in 1..7
 				Period.create([{ week_id: week.id, day: d, student_id: student.id, state: 0 }])
 			end
 		end
+		puts  c.to_s + "/" + (nb*52).to_s
 	end
-	puts "Student periods load success!"
+	puts "Student " + student.id.to_s + " (" + student.last_name + ")" + " periods load success!"
+	
 end
 #=end
 
