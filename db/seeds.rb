@@ -23,7 +23,7 @@
 #Period.delete_all
 
 #### Populate DB with periods
-#=begin
+=begin
 Student.all.each do |student|
 	Week.all.each do |week|
 		for d in 1..5
@@ -33,7 +33,7 @@ Student.all.each do |student|
 		end
 	end
 end
-#=end
+=end
 
 ##### Populate DB with real students (CSV)
 =begin
@@ -53,7 +53,7 @@ end
 =end
 
 #### Populate DB with classes (CSV)
-=begin
+#=begin
 require 'csv'
 
 CSV.foreach(Rails.root.join('csv/classes.csv'), headers: false) do |row|
@@ -62,4 +62,4 @@ CSV.foreach(Rails.root.join('csv/classes.csv'), headers: false) do |row|
 		
 	end
 end
-=end
+#=end
