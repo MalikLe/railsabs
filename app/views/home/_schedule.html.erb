@@ -28,19 +28,20 @@
 
   <tbody>
 
-    <% @periods.group(:student_id).each do |s| %>
+    <% #@periods.group(:student_id).each do |s| %>
+    <% @students.each do |s| %>
       <tr>
         <td>
-          <%= s.student.last_name %>
+          <%= s.last_name %>
         </td>
         <td>
-          <%= s.student.first_name %>
+          <%= s.first_name %>
         </td>
         <td>
-          <%= s.student.class_name %>
+          <%= s.class_name %>
         </td>
         
-        <% @periods.where( :student_id => s.student.id).each do |p| %>
+        <% @periods.where( :student_id => s.id).each do |p| %>
           <td class='text-center'>
 
             <div class="btn-group" role="group" aria-label=<%= p.id %>>
