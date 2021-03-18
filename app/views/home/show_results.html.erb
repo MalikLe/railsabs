@@ -1,4 +1,4 @@
-<h4>Show results</h4>
+<h4>Tableau des résultats</h4>
 
 
 <ul class="nav nav-tabs">
@@ -85,7 +85,12 @@
   		<% @subjects.each do |sub| %>
   			<% @tests.where(:subject_id => sub).each do |t| %>
   				<td class='text-center'>
-  					<%= Score.where(:test_id => t.id).average(:score) %>
+  					<% avg = Score.where(:test_id => t.id).average(:score).round(2) %>
+            <% if avg >= 4 %>
+                <span class="text-success"><%= avg %></span>
+              <% else %>
+                <span class="text-danger"><%= avg %></span>
+              <% end %>
   				</td>
   			<% end %>
   		<% end %>
