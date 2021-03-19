@@ -36,4 +36,5 @@ Rails.application.routes.draw do
   get 'home/new_test'
   get 'home/edit_results'
   get 'home/show_results'
+  get 'home/construction'
 end

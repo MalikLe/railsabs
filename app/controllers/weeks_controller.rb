@@ -1,6 +1,6 @@
 class WeeksController < ApplicationController
   before_action :set_week, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /weeks or /weeks.json
   def index
     @weeks = Week.all

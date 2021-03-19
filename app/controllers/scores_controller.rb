@@ -1,6 +1,6 @@
 class ScoresController < ApplicationController
   before_action :set_score, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /scores or /scores.json
   def index
     @scores = Score.all
