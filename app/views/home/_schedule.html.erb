@@ -29,7 +29,7 @@
   <tbody>
 
     <% #@periods.group(:student_id).each do |s| %>
-    <% @students.each do |s| %>
+    <% @students.order(:last_name).each do |s| %>
       <tr>
         <td>
           <%= s.last_name %>
