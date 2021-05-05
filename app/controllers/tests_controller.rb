@@ -50,6 +50,7 @@ class TestsController < ApplicationController
 
   # DELETE /tests/1 or /tests/1.json
   def destroy
+    Score.where(:test_id => @test.id).destroy_all
     @test.destroy
     respond_to do |format|
       format.html { redirect_to tests_url, notice: "Test was successfully destroyed." }

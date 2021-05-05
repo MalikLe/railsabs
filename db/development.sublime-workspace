@@ -1,0 +1,321 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"n",
+				"last_name"
+			],
+			[
+				"reque",
+				"requested_test"
+			],
+			[
+				"reques",
+				"requested_tests"
+			],
+			[
+				"res",
+				"requested_tests"
+			],
+			[
+				"h",
+				"h4\tTag"
+			],
+			[
+				"form",
+				"form"
+			],
+			[
+				"sub",
+				"subject"
+			],
+			[
+				"current",
+				"current_day"
+			],
+			[
+				"stude",
+				"students"
+			],
+			[
+				"day",
+				"day_current"
+			],
+			[
+				"btn",
+				"btn-primary"
+			],
+			[
+				"navbar-",
+				"navbar-brand"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/malik/Documents/railsabs/abs/db/seeds.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/index.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/construction.html.erb",
+		"/home/malik/Documents/railsabs/abs/config/routes.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/_header.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/devise/shared/_links.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/controllers/groups_controller.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/students/_form.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/tests/index.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/edit_results.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/show_results.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/controllers/home_controller.rb",
+		"/home/malik/Documents/railsabs/abs/app/controllers/scores_controller.rb",
+		"/home/malik/Documents/railsabs/abs/app/controllers/students_controller.rb",
+		"/home/malik/Documents/railsabs/abs/app/controllers/subjects_controller.rb",
+		"/home/malik/Documents/railsabs/abs/app/assets/stylesheets/application.scss",
+		"/home/malik/Documents/railsabs/abs/app/controllers/tests_controller.rb",
+		"/home/malik/Documents/railsabs/abs/app/controllers/weeks_controller.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/_schedule.html.erb",
+		"/home/malik/Documents/railsabs/abs/db/schema.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/students/index.html.erb",
+		"/home/malik/Documents/railsabs/abs/csv/students.csv",
+		"/home/malik/Documents/railsabs/abs/csv/classes.csv",
+		"/home/malik/Documents/railsabs/abs/db/migrate/20210305091007_add_group_id_to_tests.rb",
+		"/home/malik/Documents/railsabs/abs/app/models/student.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/tests/_form.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/tests/edit.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/javascript/packs/application.js",
+		"/home/malik/Documents/railsabs/abs/app/views/home/_results_table.html.erb",
+		"/home/malik/Documents/railsabs/abs/Gemfile",
+		"/home/malik/Documents/railsabs/abs/db/development.sqlite3-journal",
+		"/home/malik/Documents/railsabs/abs/app/models/score.rb",
+		"/home/malik/Documents/railsabs/abs/app/models/test.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/subjects/_form.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/subjects/index.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/new_test.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/models/group.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/subjects/new.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/subjects/edit.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/subjects/show.html.erb",
+		"/home/malik/Documents/railsabs/abs/db/migrate/20210306011756_fix_column_name.rb",
+		"/home/malik/Documents/railsabs/abs/app/models/subject.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/tests/new_test.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/tests/new1.html.erb",
+		"/home/malik/Documents/railsabs/abs/test/models/test_test.rb",
+		"/home/malik/Documents/railsabs/abs/test/models/subject_test.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/tests/new.html.erb",
+		"/home/malik/Documents/railsabs/abs/db/migrate/20210305211419_drop_tables_notes.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/_selection_day.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/_selection_day1.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/_selection_week.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/resulttable.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/_selection_class.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/tests/show.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/assets/stylesheets/scaffolds.scss",
+		"/home/malik/Documents/railsabs/abs/app/views/home/timetable.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/models/period.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/layouts/application.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/models/result.rb",
+		"/home/malik/Documents/railsabs/abs/app/controllers/periods_controller.rb",
+		"/home/malik/Documents/railsabs/abs/app/assets/stylesheets/application.css",
+		"/home/malik/Documents/railsabs/abs/app/assets/stylesheets/home.scss",
+		"/home/malik/Documents/railsabs/abs/app/views/periods/index.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/models/week.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/select.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/_selection.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/groups/select.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/byclass.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/devise/shared/_error_messages.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/devise/sessions/new.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/devise/registrations/new.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/devise/registrations/edit.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/layouts/_alerts.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/students/edit.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/students/_student.json.jbuilder",
+		"/home/malik/Documents/railsabs/abs/config/environments/development.rb",
+		"/home/malik/Documents/railsabs/abs/config/environments/production.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/students/new.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/views/students/show.html.erb",
+		"/home/malik/Documents/railsabs/abs/db/migrate/20210215182310_create_students.rb",
+		"/home/malik/Documents/railsabs/abs/app/views/home/about.html.erb",
+		"/home/malik/Documents/railsabs/abs/app/assets/stylesheets/XXscaffolds.scss",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/friends/show.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/home/_header.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/config/routes.rb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/friends/edit.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/README.md",
+		"/home/malik/Documents/railsfriends/friends/friends/Gemfile",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/home/about.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/controllers/home_controller.rb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/friends/index.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/Gemfile.lock",
+		"/home/malik/Documents/untitled",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/home/index.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/layouts/application.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/devise/sessions/new.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/devise/registrations/new.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/devise/shared/_links.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/devise/registrations/edit.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/models/friend.rb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/models/user.rb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/friends/_form.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/controllers/friends_controller.rb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/layouts/_alerts.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/friends/new.html.erb",
+		"/home/malik/Documents/railsfriends/friends/friends/config/environments/development.rb",
+		"/home/malik/Documents/railsfriends/friends/friends/config/environments/production.rb",
+		"/home/malik/Documents/railsfriends/friends/friends/db/schema.rb",
+		"/home/malik/Documents/railsfriends/friends/friends/app/views/home/test.html.erb"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 111.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 43.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "development.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 209.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
