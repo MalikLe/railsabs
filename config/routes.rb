@@ -37,4 +37,6 @@ Rails.application.routes.draw do
   get 'home/edit_results'
   get 'home/show_results'
   get 'home/construction'
+  get 'home/login_students'
+  get 'home/index_teachers'
 end

@@ -1,0 +1,45 @@
+<h4>Portail étudiant</h4>
+</br>
+<div class="card">
+  <div class="card-header">
+    <h4>Identifiez-vous</h4>
+  </div>
+  <div class="card-body">
+    <%= form_with url: "/home/login_students", method: :get do |form| %>
+      <div class="field form-group">
+    	<% form.label :first_name %>
+    	<%= form.text_field :mat, class:'form-control', placeholder:"Votre numéro d'étudiant" %>
+  	</div>
+    </br>
+      <%= form.submit "Exécuter", class:"btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</br>
+<table class='table table-striped table-hover'>
+  <thead class='table-dark'>
+    <tr>
+      <th>Semaine</th>
+      <th>Retards</th>
+      <th>Absences</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @agg_periods.each do |p| %>
+      <tr>
+        <td><%= p.week.date_formated %></td>
+        <td><%= @agg_periods_ret[p.week.id] %></td>
+        <td><%= @agg_periods_abs[p.week.id] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+  	<tr>
+  		<td></td>
+  		<td><%= @tot_ret%></td>
+  		<td><%= @tot_abs%></td>
+  	</tr>
+  </tfoot>
+</table>

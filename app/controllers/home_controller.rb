@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:login_students, :index]
   def index
   end
 
@@ -124,6 +125,23 @@ class HomeController < ApplicationController
     @tests = Test.where(:group_id => @gr)
     @subjects = @tests.distinct.pluck(:subject_id)
     @students = Student.where(:class_name => Group.find(@gr).name)
+  end
+
+  def login_students
+    @weeks = Week.all
+    if(params.has_key?(:mat))
+      @mat = params[:mat]
+    end
+
+    @periods = Period.where(:student_id => Student.where(:serial_num => @mat).ids).where("state > 0")
+    @agg_periods = @periods.group('week_id')
+    @agg_periods_abs= @periods.where(:state => 2).group('week_id').count
+    @agg_periods_ret= @periods.where(:state => 1).group('week_id').count
+    @tot_abs = @periods.where(:state => 2).count
+    @tot_ret = @periods.where(:state => 1).count
+  end
+
+  def index_teachers
   end
   
 end
