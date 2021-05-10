@@ -134,7 +134,7 @@ class HomeController < ApplicationController
     end
 
     @periods = Period.where(:student_id => Student.where(:serial_num => @mat).ids).where("state > 0")
-    @agg_periods = @periods.unscoped.group('week_id')
+    @agg_periods = @periods.group(['week_id', 'id'])
     @agg_periods_abs= @periods.where(:state => 2).group('week_id').count
     @agg_periods_ret= @periods.where(:state => 1).group('week_id').count
     @tot_abs = @periods.where(:state => 2).count
