@@ -9,28 +9,26 @@
   </thead>
 
   <tbody>
-
-    <% @requested_scores.each do |score| %>
+    <% @students.each do |s| %>
       <tr>
         <td>
-          <%= score.student.last_name %>
+          <%= s.last_name %>
         </td>
         <td>
-          <%= score.student.first_name %>
+          <%= s.first_name %>
         </td>
         <td>
-          <%= score.student.class_name %>
+          <%= s.class_name %>
         </td>
         <td>
           <%= form_tag discontinue_scores_path, local:false, class:"row g-2",  method: :put do %>
             <div class="col-auto">
-              <%= text_field_tag 'score', score.score, class:"form-control", onblur:"this.form.submit();"  %>
+              <%= text_field_tag 'score', s.scores.first.score, class:"form-control", onblur:"this.form.submit();" %>
             </div>
             <div class="col-auto">
-              
             </div>
 
-            <%= hidden_field_tag 'id', score.id %>
+            <%= hidden_field_tag 'id', s.scores.first.id %>
           <% end %>
         </td>
       </tr>

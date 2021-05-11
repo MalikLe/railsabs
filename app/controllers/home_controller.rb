@@ -109,9 +109,12 @@ class HomeController < ApplicationController
       @gr = @requested_tests.first.group_id
     end
 
-    #@students = Student.where(class_name: Group.where(:id => @gr).first.name)
     @requested_test = @requested_tests.where(:group_id => @gr)
+    @students = Student.joins(:scores).where(scores: {:test_id => @requested_test.ids}).order(:last_name)
+    
     @requested_scores = Score.where(:test_id => @requested_test.ids)
+
+
   end
 
   def show_results
@@ -124,7 +127,7 @@ class HomeController < ApplicationController
 
     @tests = Test.where(:group_id => @gr)
     @subjects = @tests.distinct.pluck(:subject_id)
-    @students = Student.where(:class_name => Group.find(@gr).name)
+    @students = Student.where(:class_name => Group.find(@gr).name).order(:last_name)
   end
 
   def login_students
