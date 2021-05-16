@@ -1,0 +1,56 @@
+<h4>Rapport des absences</h4>
+
+
+<ul class="nav nav-tabs">
+<% @groups.each do |group| %>
+	<li class="nav-item">
+	    <% if group.id == @gr.to_i %>
+	    	<%= link_to group.name, params.permit(:class).merge(:class => group.id) , class:"nav-link active" %>
+	    <% else %>
+	    	<%= link_to group.name, params.permit(:class).merge(:class => group.id) , class:"nav-link" %>
+	    <% end %>
+  	</li>
+<% end %>
+</ul>
+
+<table class='table table-striped table-responsive table-hover'>
+  <thead class='table-dark'>
+    <tr>
+      <th>Étudiant</th>
+      <th>Classe</th>
+	  	<th>Retards</th>
+      <th>Absences</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @students.each do |std| %>
+  	<tr>
+  		<td>
+        <%= link_to std  do%>
+            <%= std.first_name + " " + std.last_name %>
+          <% end %>
+      </td>
+  		<td><%= std.class_name %></td>
+  		<td>
+        <% 
+          periods = Period.where(:student_id => std.id).where("state > 0")
+          agg_periods = periods.group(['week_id', 'id'])
+          agg_periods_abs= periods.where(:state => 2).group('week_id').count
+          agg_periods_ret= periods.where(:state => 1).group('week_id').count
+          tot_abs = periods.where(:state => 2).count
+          tot_ret = periods.where(:state => 1).count
+        %>
+
+        <%=tot_ret%> 
+      </td>
+      <td><%=tot_abs%></td>
+  	</tr>
+  	<% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Gérer les étudiants', students_path%>
+
+
+
+

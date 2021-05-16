@@ -8,6 +8,18 @@ class StudentsController < ApplicationController
 
   # GET /students/1 or /students/1.json
   def show
+    @weeks = Week.all
+    if(params.has_key?(:id))
+      @id = params[:id]
+    end
+
+    @periods = Period.where(:student_id => Student.find(@id)).where("state > 0")
+    @weeks = Week.all
+    #@agg_periods = @periods.group(['week_id', 'id'])
+    @agg_periods_abs= @periods.where(:state => 2).group('week_id').count
+    @agg_periods_ret= @periods.where(:state => 1).group('week_id').count
+    @tot_abs = @periods.where(:state => 2).count
+    @tot_ret = @periods.where(:state => 1).count
   end
 
   # GET /students/new

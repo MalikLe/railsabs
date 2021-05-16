@@ -147,5 +147,19 @@ class HomeController < ApplicationController
 
   def index_teachers
   end
+
+  def show_absences
+    @groups = Group.all
+    if(params.has_key?(:class))
+      @gr = params[:class]
+    else
+      @gr = Group.first.id
+    end
+
+
+    @students = Student.where(:class_name => Group.find(@gr).name).order(:last_name)
+
+    
+  end
   
 end

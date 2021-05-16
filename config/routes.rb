@@ -39,4 +39,5 @@ Rails.application.routes.draw do
   get 'home/construction'
   get 'home/login_students'
   get 'home/index_teachers'
+  get 'home/show_absences'
 end
