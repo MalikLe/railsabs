@@ -1,0 +1,55 @@
+<h5>Rapport des résultats</h5>
+<table class='table table-striped table-hover'>
+  <thead class='table-dark'>
+    <tr>
+      <th>Branches</th>
+      <th class='text-center' colspan=2>Résultats</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th class='text-center'>Ecrits</th>
+      <th class='text-center'>Oraux</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subjects.each do |sub| %>
+      <tr>
+          <td>
+                <%= Subject.find(sub).name %>
+          </td>
+          <td class='text-center'>
+            <% scores_wrt = Score.where(:student_id => @id).where(:test_id => @tests.where(:subject_id => sub).where(:test_type => 0)) %>
+            <% scores_orl = Score.where(:student_id => @id).where(:test_id => @tests.where(:subject_id => sub).where(:test_type => 1)) %>
+            <% avg_wrt = scores_wrt.average(:score) %>
+            <% avg_orl = scores_orl.average(:score) %>
+            <% if avg_wrt.nil? %>
+              <span class="text-muted">na</span>
+            <%else%>
+              <% if avg_wrt  >= 4 %>
+                <span class="text-success"><%= avg_wrt.round(2) %></span>
+              <% else %>
+                <span class="text-danger"><%= avg_wrt.round(2) %></span>
+              <% end %>
+            <%end%>
+          </td>
+            
+          <td class='text-center'>
+            <% if avg_orl.nil? %>
+                <span class="text-muted">na</span>
+              <%else%>
+                <% if avg_orl  >= 4 %>
+                  <span class="text-success"><%= avg_orl.round(2) %></span>
+                <% else %>
+                  <span class="text-danger"><%= avg_orl.round(2) %></span>
+                <% end %>
+              <%end%>
+          </td>
+      </tr>
+    <% end %>
+    
+  </tbody>
+  <tfoot>
+  	
+  </tfoot>
+</table>

@@ -61,7 +61,7 @@ class ScoresController < ApplicationController
 
     value = params[:score]
     if value.to_f >= 1 and value.to_f <= 6
-      Score.where(id:params[:id]).update_all(:score => value)
+      Score.find(params[:id]).update(:score => value)
     else
       Score.where(id:params[:id]).update_all(:score => nil)
     end

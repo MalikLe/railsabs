@@ -23,12 +23,13 @@
         <td>
           <%= form_tag discontinue_scores_path, local:false, class:"row g-2",  method: :put do %>
             <div class="col-auto">
-              <%= text_field_tag 'score', s.scores.first.score, class:"form-control", onblur:"this.form.submit();" %>
+              <%= text_field_tag 'score', s.scores.where(:test_id => @requested_tests.ids).first.score, class:"form-control", onblur:"this.form.submit();" %>
             </div>
             <div class="col-auto">
             </div>
 
-            <%= hidden_field_tag 'id', s.scores.first.id %>
+            <%= hidden_field_tag 'id', s.scores.where(:test_id => @requested_tests.ids).first.id %>
+            <%= s.scores.where(:test_id => @requested_tests.ids).ids %>
           <% end %>
         </td>
       </tr>

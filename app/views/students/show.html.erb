@@ -11,36 +11,9 @@
 </div>
 <br/>
 
-<h5>Rapport des absences</h5>
-<table class='table table-striped table-hover'>
-  <thead class='table-dark'>
-    <tr>
-      <th>Semaine</th>
-      <th>Retards</th>
-      <th>Absences</th>
-    </tr>
-  </thead>
+<%= render 'students/absences' %> 
 
-  <tbody>
-
-    <% @weeks.each do |w| %>
-    	<% if @agg_periods_ret[w.id] != nil or @agg_periods_abs[w.id] != nil%>
-	      <tr>
-	        <td><%= w.date_formated %></td>
-	        <td><%= @agg_periods_ret[w.id] %></td>
-	        <td><%= @agg_periods_abs[w.id] %></td>
-	      </tr>
-	    <% end %>
-    <% end %>
-  </tbody>
-  <tfoot>
-  	<tr>
-  		<td></td>
-  		<td><%= @tot_ret%></td>
-  		<td><%= @tot_abs%></td>
-  	</tr>
-  </tfoot>
-</table>
+<%= render 'students/results' %>
 
 
 <%= link_to 'Retour', students_path%>

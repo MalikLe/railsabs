@@ -20,6 +20,11 @@ class StudentsController < ApplicationController
     @agg_periods_ret= @periods.where(:state => 1).group('week_id').count
     @tot_abs = @periods.where(:state => 2).count
     @tot_ret = @periods.where(:state => 1).count
+
+    @student = Student.find(@id)
+    @tests = Test.where(:group_id => @student.class_id)
+    @subjects = @tests.distinct.pluck(:subject_id)
+    @scores = Score.where(:student_id => Student.find(@id))
   end
 
   # GET /students/new

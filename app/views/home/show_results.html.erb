@@ -13,7 +13,7 @@
 <% end %>
 </ul>
 
-<table class='table table-striped table-responsive table-hover'>
+<table class='table table-bordered table-striped table-responsive table-hover'>
   <thead class='table-dark'>
     <tr>
       <th>Étudiant</th>
@@ -21,7 +21,6 @@
 	  	<th class='text-center' colspan=<%= @tests.count %> >
 	  		Épreuves
 	    </th>
-
     </tr>
     <tr>
       <th></th>
@@ -29,8 +28,8 @@
 	  		<% @subjects.each do |sub| %>
   				<th class='text-center' colspan= <%= @tests.where(:subject_id => sub).count %> >
             		<%= Subject.find(sub).name %>
-          		</th>
-      		<% end %>
+          </th>
+      	<% end %>
     </tr>
   </thead>
   <tbody>
@@ -50,7 +49,7 @@
             				<i class="bi bi-chat"></i>
             			<% end %>
             		<% end %>
-          		</td>
+          </td>
       		<% end %>
       	<% end %>
   	</tr>
@@ -72,7 +71,7 @@
   						<% end %>
   					<%end%>
 
-          		</td>
+          </td>
       		<% end %>
       	<% end %>
   	</tr>
@@ -85,12 +84,16 @@
   		<% @subjects.each do |sub| %>
   			<% @tests.where(:subject_id => sub).each do |t| %>
   				<td class='text-center'>
-  					<% avg = Score.where(:test_id => t.id).average(:score).round(2) %>
-            <% if avg >= 4 %>
-                <span class="text-success"><%= avg %></span>
+  					<% avg = Score.where(:test_id => t.id).average(:score) %>
+            <% if avg.nil? %>
+              <span class="text-muted">na</span>
+            <%else%>
+              <% if avg >= 4 %>
+                <span class="text-success"><%= avg.round(2) %></span>
               <% else %>
-                <span class="text-danger"><%= avg %></span>
+                <span class="text-danger"><%= avg.round(2) %></span>
               <% end %>
+            <%end%>
   				</td>
   			<% end %>
   		<% end %>
