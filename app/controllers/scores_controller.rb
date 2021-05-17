@@ -60,7 +60,11 @@ class ScoresController < ApplicationController
     #skip_before_action :verify_authenticity_token
 
     value = params[:score]
-    Score.where(id:params[:id]).update_all(:score => value.to_f)
+    if value.to_f >= 1 and value.to_f <= 6
+      Score.where(id:params[:id]).update_all(:score => value)
+    else
+      Score.where(id:params[:id]).update_all(:score => nil)
+    end
 
   end
 
